@@ -19,7 +19,8 @@ fn main() {
             \n---\n\
             [font]:\
             \n---\n\
-            [--d --default] : FFont's default font",
+            [--d --default] : FFont's default font\n\
+            [--ar --ansi_regular] : ANSI Regular font",
             command = args.get(0).unwrap());
 
 
@@ -35,11 +36,8 @@ fn main() {
     }
 
     match option.as_str() {
-        "--d" | "--default" => {
-            print!("{}", font::FFont::generate(&font::FFont::init_default(), text_data));
-        },
-        _ => {
-            println!("{}{}", "Undefined font here -> ", option);
-        }
+        "--d" | "--default"      => print!("{}", font::FFont::generate(&font::FFont::init_default(), text_data)),
+        "--ar"| "--ansi_regular" => print!("{}", font::FFont::generate(&font::FFont::init_ansi_regular(), text_data)),
+        _                        => println!("{}{}", "Undefined font here -> ", option)
     }
 }
