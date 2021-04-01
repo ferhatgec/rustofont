@@ -39,7 +39,7 @@ fn main() {
             print!("{}", font::FFont::generate(&font::FFont::init_default(), text_data));
         },
         _ => {
-
+            println!("{}{}", "Undefined font here -> ", option);
         }
     }
 }
